@@ -1,18 +1,20 @@
 import module
 
-import time
+import subprocess
 
 
-class ExampleModule(module.Module):
+class PandoraModule(module.Module):
     def run(self):
-        super(ExampleModule, self).run()
-        while self.running:
-            print "Hello World"
-            time.sleep(1.0)
+        super(PandoraModule, self).run()
+        self.process = subprocess.POpen(["pianobar"])
+        #Switching stations
+        subprocess.call(["echo", "-n", 's', ">", "~/.config/pianobar/ctl"])
+        #to the station matching "Magnets"
+        subprocess.call(["echo", "Magnets", ">", "~/.config/pianobar/ctl"])
 
     def quit(self):
-        print "Goodbye World"
-        super(ExampleModule, self).quit()
+        self.process.terminate()
+        super(PandoraModule, self).quit()
 
-start = ExampleModule.start
-stop = ExampleModule.stop
+start = PandoraModule.start
+stop = PandoraModule.stop
