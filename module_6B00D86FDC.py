@@ -19,9 +19,9 @@ class Mp3Module(module.Module):
     def run(self):
         super(Mp3Module, self).run()
         if self.loop:
-            self.process = subprocess.Popen(["mpg123", "--loop", "-1", self.filepath(self.song)])
+            self.process = subprocess.Popen(["mpg123", "-q", "--loop", "-1", self.filepath(self.song)])
         else:
-            self.process = subprocess.Popen(["mpg123", self.filepath(self.song)])
+            self.process = subprocess.Popen(["mpg123", "-q", self.filepath(self.song)])
 
     def quit(self):
         self.process.terminate()
