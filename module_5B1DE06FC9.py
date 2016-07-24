@@ -5,6 +5,9 @@ import os.path
 
 
 class PandoraModule(module.Module):
+    """
+    Play the "Magnets" pandora station via pianobar
+    """
     def run(self):
         super(PandoraModule, self).run()
         self.process = subprocess.Popen(["pianobar"])
