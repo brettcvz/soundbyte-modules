@@ -6,7 +6,7 @@ import subprocess
 class PandoraModule(module.Module):
     def run(self):
         super(PandoraModule, self).run()
-        self.process = subprocess.POpen(["pianobar"])
+        self.process = subprocess.Popen(["pianobar"])
         #Switching stations
         subprocess.call(["echo", "-n", 's', ">", "~/.config/pianobar/ctl"])
         #to the station matching "Magnets"
