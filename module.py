@@ -6,16 +6,16 @@ class Module(object):
     @classmethod
     def start(cls, card_id, card_data):
         cls.inst = cls(card_id, card_data)
-        cls.inst.start()
+        cls.inst.run()
 
     @classmethod
     def stop(cls):
         if hasattr(cls, "inst"):
-            cls.inst.stop()
+            cls.inst.quit()
             cls.inst = None
 
-    def start(self):
+    def run(self):
         self.running = True
 
-    def stop(self):
+    def quit(self):
         self.running = False
