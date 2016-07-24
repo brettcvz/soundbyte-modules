@@ -13,7 +13,7 @@ class ConfigurationModule(module.Module):
         subprocess.call(["aplay", "-q", "soundbyte-modules/files/access_piont_created.wav"])
 
     def quit(self):
-        self.process.terminate()
+        self.ap_process.terminate()
         super(ConfigurationModule, self).quit()
 
 start = ConfigurationModule.start
