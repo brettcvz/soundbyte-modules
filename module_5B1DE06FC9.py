@@ -2,6 +2,7 @@ import module
 
 import subprocess
 import os.path
+import time
 
 
 class PandoraModule(module.Module):
@@ -17,6 +18,7 @@ class PandoraModule(module.Module):
         with open(ctl_path, "wb") as ctl:
             #Switching stations
             subprocess.call(["echo", "-n", 's'], stdout=ctl)
+            time.sleep(0.2)
             #to the station matching "Magnets"
             subprocess.call(["echo", "Magnets"], stdout=ctl)
 
