@@ -17,8 +17,7 @@ class PandoraModule(module.Module):
         ctl_path = os.path.abspath(os.path.expanduser(ctl_path))
         with open(ctl_path, "wb") as ctl:
             #Switching stations
-            subprocess.call(["echo", "-n", 's'], stdout=ctl)
-            time.sleep(0.2)
+            subprocess.call(["echo", 's'], stdout=ctl)
             #to the station matching "Magnets"
             subprocess.call(["echo", "Magnets"], stdout=ctl)
 
